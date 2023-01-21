@@ -1,7 +1,6 @@
-package initialize
+package common
 
 import (
-	"ant-admin/gin-angular-admin/global"
 	"ant-admin/gin-angular-admin/model"
 	"fmt"
 	"github.com/spf13/viper"
@@ -37,7 +36,6 @@ func InitDb() *gorm.DB {
 	db.AutoMigrate(&model.User{})
 
 	DB = db
-	global.GLOBAL_DB = db
 	return db
 }
 
