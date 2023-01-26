@@ -1,4 +1,4 @@
-package vo
+package sysVo
 
 type UserVO struct {
 	Name      string `json:"name"`

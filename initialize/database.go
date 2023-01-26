@@ -2,7 +2,7 @@ package initialize
 
 import (
 	"ant-admin/gin-angular-admin/global"
-	"ant-admin/gin-angular-admin/model"
+	"ant-admin/gin-angular-admin/model/entity/sysEntity"
 	"fmt"
 	"github.com/spf13/viper"
 	"gorm.io/driver/mysql"
@@ -34,7 +34,7 @@ func InitDb() *gorm.DB {
 		panic("failed to connect database,err: " + err.Error())
 	}
 
-	db.AutoMigrate(&model.User{})
+	db.AutoMigrate(&sysEntity.UserEntity{})
 
 	DB = db
 	global.GLOBAL_DB = db
