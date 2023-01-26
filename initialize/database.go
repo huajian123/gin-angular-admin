@@ -7,6 +7,7 @@ import (
 	"github.com/spf13/viper"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
+	"gorm.io/gorm/schema"
 	"net/url"
 )
 
@@ -29,12 +30,14 @@ func InitDb() *gorm.DB {
 		charset,
 		url.QueryEscape(loc),
 	)
-	db, err := gorm.Open(mysql.Open(args), &gorm.Config{})
+	db, err := gorm.Open(mysql.Open(args), &gorm.Config{
+		NamingStrategy: schema.NamingStrategy{SingularTable: true}, // 生成的表名为单数，不然会自动添加s例如users
+	})
 	if err != nil {
 		panic("failed to connect database,err: " + err.Error())
 	}
 
-	db.AutoMigrate(&sysEntity.UserEntity{})
+	db.AutoMigrate(&sysEntity.User{})
 
 	DB = db
 	global.GLOBAL_DB = db

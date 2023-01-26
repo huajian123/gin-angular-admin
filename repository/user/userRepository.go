@@ -8,6 +8,6 @@ import (
 type UserRepository struct {
 }
 
-func (u UserRepository) Register(entity sysEntity.UserEntity) {
-	global.GLOBAL_DB.Create(&entity)
+func (u UserRepository) Register(entity sysEntity.User) {
+	global.GLOBAL_DB.Debug().Create(&entity)
 }
