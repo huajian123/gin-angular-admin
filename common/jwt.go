@@ -1,7 +1,7 @@
 package common
 
 import (
-	"ant-admin/gin-angular-admin/model"
+	"ant-admin/gin-angular-admin/model/entity/sysEntity"
 	"github.com/dgrijalva/jwt-go"
 	"time"
 )
@@ -22,7 +22,7 @@ type Claims struct {
 }
 
 // 发送token,再登陆成功后
-func ReleaseToken(user model.User) (string, error) {
+func ReleaseToken(user sysEntity.User) (string, error) {
 	// 过期时间
 	expirationTime := time.Now().Add(7 * 24 * time.Hour)
 	claims := &Claims{
