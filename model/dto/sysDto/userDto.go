@@ -1,10 +1,10 @@
 package sysDto
 
 type UserDto struct {
-	Name      *string `json:"name"`
-	Telephone *string `json:"telephone"`
-	Email     *string `json:"email"`
-	Password  *string `json:"password"`
+	Name      string `json:"name" binding:"required"`
+	Telephone string `json:"telephone" binding:"required"`
+	Email     string `json:"email" binding:"email"`
+	Password  string `json:"password"`
 }
 
 //func UserVoToDto(v vo.UserVO) UserDto {

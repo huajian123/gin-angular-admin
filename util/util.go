@@ -15,5 +15,5 @@ func RandomString(n int) string {
 		result[i] = letters[rand.Intn(len(letters))]
 	}
 	println(string(result))
-	return (string(result))
+	return string(result)
 }
